@@ -19,7 +19,12 @@ import {
   loadWorkspace,
   type PersistedWorkspace,
 } from "@/store/persistence";
-import { resetPaperId } from "@/lib/session";
+import {
+  applyDeepLinkFromUrl,
+  buildSchoolOsLaunchPrompt,
+  consumeLaunchContext,
+  resetPaperId,
+} from "@/lib/session";
 import { applyQuestionToPaper } from "@/lib/paper-utils";
 import { syncInstructionMarks } from "@/lib/section-instruction";
 
@@ -216,6 +221,8 @@ export const usePaperStore = create<State & Actions>((set, get) => ({
 
   hydrate: async () => {
     if (get().hydrated) return;
+    applyDeepLinkFromUrl();
+    const launchContext = consumeLaunchContext();
 
     const server = await loadSessionFromServer();
     if (server?.paper || (server?.messages && server.messages.length > 0)) {
@@ -245,6 +252,15 @@ export const usePaperStore = create<State & Actions>((set, get) => ({
       });
     } else {
       set({ hydrated: true });
+    }
+
+    if (
+      launchContext?.autoStart &&
+      !get().paper &&
+      !get().isStreaming
+    ) {
+      const prompt = buildSchoolOsLaunchPrompt(launchContext);
+      void get().sendUserMessage(prompt);
     }
   },
 
