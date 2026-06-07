@@ -1,0 +1,78 @@
+{
+  "books": [
+    {
+      "id": "ncert-10-sst-geography",
+      "board": "CBSE",
+      "className": "10",
+      "subject": "Geography",
+      "title": "NCERT Contemporary India II — Geography (Class 10)",
+      "publisher": "NCERT",
+      "topics": [
+        "Resources and Development",
+        "Forest and Wildlife Resources",
+        "Water Resources",
+        "Agriculture",
+        "Minerals and Energy Resources",
+        "Manufacturing Industries",
+        "Lifelines of National Economy"
+      ],
+      "r2Key": "books/cbse/10/sst/geography/",
+      "pdfFolder": "data/books/jess1dd",
+      "exclude": ["jess1ps.pdf", "jess1a1.pdf"]
+    },
+    {
+      "id": "ncert-10-sst-economics",
+      "board": "CBSE",
+      "className": "10",
+      "subject": "Economics",
+      "title": "NCERT Understanding Economic Development (Class 10)",
+      "publisher": "NCERT",
+      "topics": [
+        "Development",
+        "Sectors of the Indian Economy",
+        "Money and Credit",
+        "Globalisation and the Indian Economy",
+        "Consumer Rights"
+      ],
+      "r2Key": "books/cbse/10/sst/economics/",
+      "pdfFolder": "data/books/jess2dd",
+      "exclude": ["jess2ps.pdf"]
+    },
+    {
+      "id": "ncert-10-sst-history",
+      "board": "CBSE",
+      "className": "10",
+      "subject": "History",
+      "title": "NCERT India and the Contemporary World II — History (Class 10)",
+      "publisher": "NCERT",
+      "topics": [
+        "The Rise of Nationalism in Europe",
+        "Nationalism in India",
+        "The Making of a Global World",
+        "The Age of Industrialisation",
+        "Print Culture and the Modern World"
+      ],
+      "r2Key": "books/cbse/10/sst/history/",
+      "pdfFolder": "data/books/jess3dd",
+      "exclude": ["jess3ps.pdf"]
+    },
+    {
+      "id": "ncert-10-sst-political-science",
+      "board": "CBSE",
+      "className": "10",
+      "subject": "Political Science",
+      "title": "NCERT Democratic Politics II — Political Science (Class 10)",
+      "publisher": "NCERT",
+      "topics": [
+        "Power-sharing",
+        "Federalism",
+        "Gender Religion and Caste",
+        "Political Parties",
+        "Outcomes of Democracy"
+      ],
+      "r2Key": "books/cbse/10/sst/political-science/",
+      "pdfFolder": "data/books/jess4dd",
+      "exclude": ["jess4ps.pdf"]
+    }
+  ]
+}

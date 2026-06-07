@@ -1,0 +1,53 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "paperly",
+	"compatibility_date": "2025-09-24",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	// Entry is provided by @cloudflare/vite-plugin + tanstackStart — do not use `wrangler dev` on src/server.ts
+	// Replace placeholder IDs below before `wrangler deploy` (see DEV.md).
+	"migrations_dir": "migrations",
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "paperly-db",
+			"database_id": "db95bc24-933c-42e1-91b5-e2a19cd746ff"
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "CACHE",
+			"id": "9206293f17f44eb49027d5e22244b20d"
+		}
+	],
+	// "r2_buckets": [
+	// 	{
+	// 		"binding": "SYLLABUS_BUCKET",
+	// 		"bucket_name": "paperly-syllabus"
+	// 	}
+	// ],
+	"queues": {
+		"producers": [
+			{
+				"binding": "INGEST_QUEUE",
+				"queue": "paperly-ingest"
+			}
+		],
+		"consumers": [
+			{
+				"queue": "paperly-ingest",
+				"max_batch_size": 1,
+				"max_batch_timeout": 30
+			}
+		]
+	},
+	// voyage-3-lite embeddings are 512-dim — create index: wrangler vectorize create paperly-syllabus --dimensions=512 --metric=cosine
+	"vectorize": [
+		{
+			"binding": "SYLLABUS_VECTORS",
+			"index_name": "paperly-syllabus"
+		}
+	],
+	"vars": {}
+}

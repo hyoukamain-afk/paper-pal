@@ -1,0 +1,5 @@
+# Copy to .dev.vars for Wrangler local simulation (optional).
+# Production secrets: wrangler secret put ANTHROPIC_API_KEY
+ANTHROPIC_API_KEY=
+VOYAGE_API_KEY=
+ADMIN_SECRET=local-dev-admin-change-me
